@@ -1,8 +1,13 @@
 import React from 'react';
-import './app.css';
+import styles from './app.module.css';
+import SearchHeader from './components/search_header/search_header';
 
 function App() {
-  return <h1>Hello :)</h1>;
+  return (
+    <div className={styles.app}>
+      <SearchHeader />
+    </div>
+  );
 }
 
 export default App;

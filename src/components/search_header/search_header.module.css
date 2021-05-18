@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  padding: 0.5rem;
+}
+
+.logo {
+  color: red;
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  color: white;
+}
+
+.searchInput {
+  font-size: 1.2rem;
+  width: 700px;
+}
+
+.searchBtn {
+  padding: 0.35rem;
+  background-color: #363537;
+  color: white;
+}
