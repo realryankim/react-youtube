@@ -1,13 +1,4 @@
-* {
-  box-sizing: border-box;
-}
-
-button {
-  outline: none;
-  cursor: pointer;
-  border: none;
-}
-
-li {
-  list-style: none;
+.app {
+  max-width: 1380px;
+  margin: 0 auto;
 }
