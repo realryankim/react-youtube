@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-basis: 40%;
+  width: 100%;
+  height: 100%;
+  margin: 0.3rem;
+  -webkit-box-shadow: 10px 10px 37px -9px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 10px 10px 37px -9px rgba(0, 0, 0, 1);
+  box-shadow: 10px 10px 37px -9px rgba(0, 0, 0, 1);
+  cursor: pointer;
+}
+
+.video {
+  display: flex;
+  align-items: center;
+}
+
+.metaData {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: 8px;
+}
+
+.title,
+.channelTitle {
+  margin: 0;
+}
