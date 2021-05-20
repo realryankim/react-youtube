@@ -8,10 +8,26 @@ import VideoDetail from './components/video_detail/video_detail';
 function App() {
   const [videos, setVideos] = useState([]);
 
+  const search = query => {
+    axios
+      .get(
+        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&type=video&key=AIzaSyCvwachC5WMQsuHzo3W5h5YcgSH9tVWhfw`
+      )
+      .then(res => {
+        const { data } = res;
+        const items = data.items.map(item => ({
+          ...item,
+          id: item.id.videoId,
+        }));
+        setVideos(items);
+      })
+      .catch(error => console.log('error', error));
+  };
+
   useEffect(() => {
     axios
       .get(
-        'https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyCvwachC5WMQsuHzo3W5h5YcgSH9tVWhfw&key=AIzaSyCvwachC5WMQsuHzo3W5h5YcgSH9tVWhfw'
+        'https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyCvwachC5WMQsuHzo3W5h5YcgSH9tVWhfw'
       )
       .then(res => {
         const { data } = res;
@@ -22,7 +38,7 @@ function App() {
 
   return (
     <div className={styles.app}>
-      <SearchHeader />
+      <SearchHeader onSearch={search} />
       {/* <VideoDetail videos={videos} /> */}
       <VideoList videos={videos} />
     </div>
