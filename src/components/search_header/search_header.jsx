@@ -21,17 +21,23 @@ const SearchHeader = ({ onSearch }) => {
 
   return (
     <header className={styles.header}>
-      <i className={`${styles.logo} fab fa-youtube`}></i>
-      <span className={styles.title}>Youtube</span>
+      <div className={styles.logo}>
+        <img className={styles.img} src='/images/logo.png' alt='logo' />
+        <h1 className={styles.title}>Youtube</h1>
+      </div>
       <input
         ref={inputRef}
-        className={styles.searchInput}
+        className={styles.input}
         type='search'
         placeholder='Search..'
         onKeyPress={onKeyPress}
       />
-      <button className={styles.searchBtn} onClick={onClick}>
-        <i className='fas fa-search'></i>
+      <button type='submit' className={styles.button} onClick={onClick}>
+        <img
+          className={styles.buttonImg}
+          src='/images/search.png'
+          alt='search'
+        />
       </button>
     </header>
   );

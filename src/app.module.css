@@ -1,4 +1,4 @@
 .app {
-  max-width: 1380px;
+  max-width: 80rem; /* 80 & 16px = 1280px */
   margin: 0 auto;
 }
