@@ -29,7 +29,7 @@ const SearchHeader = ({ onSearch }) => {
         ref={inputRef}
         className={styles.input}
         type='search'
-        placeholder='Search..'
+        placeholder='Search...'
         onKeyPress={onKeyPress}
       />
       <button type='submit' className={styles.button} onClick={onClick}>

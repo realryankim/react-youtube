@@ -5,36 +5,20 @@ import VideoList from './components/video_list/video_list';
 import VideoDetail from './components/video_detail/video_detail';
 import styles from './app.module.css';
 
-function App() {
+function App({ youtube }) {
   const [videos, setVideos] = useState([]);
 
   const search = query => {
-    axios
-      .get(
-        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&type=video&key=AIzaSyCvwachC5WMQsuHzo3W5h5YcgSH9tVWhfw`
-      )
-      .then(res => {
-        const { data } = res;
-        const items = data.items.map(item => ({
-          ...item,
-          id: item.id.videoId,
-        }));
-        setVideos(items);
-      })
-      .catch(error => console.log('error', error));
+    youtube
+      .search(query) //
+      .then(videos => setVideos(videos));
   };
 
   useEffect(() => {
-    axios
-      .get(
-        'https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyCvwachC5WMQsuHzo3W5h5YcgSH9tVWhfw'
-      )
-      .then(res => {
-        const { data } = res;
-        setVideos(data.items);
-      })
-      .catch(error => console.log('error', error));
-  }, []);
+    youtube
+      .mostPopular() //
+      .then(videos => setVideos(videos));
+  }, [youtube]);
 
   return (
     <div className={styles.app}>
