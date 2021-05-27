@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import SearchHeader from './components/search_header/search_header';
 import VideoList from './components/video_list/video_list';
 import VideoDetail from './components/video_detail/video_detail';
@@ -9,16 +9,19 @@ function App({ youtube }) {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const search = query => {
-    setSelectedVideo(null);
-    setLoading(true);
-    youtube
-      .search(query) //
-      .then(videos => {
-        setVideos(videos);
-        setLoading(false);
-      });
-  };
+  const search = useCallback(
+    query => {
+      setSelectedVideo(null);
+      setLoading(true);
+      youtube
+        .search(query) //
+        .then(videos => {
+          setVideos(videos);
+          setLoading(false);
+        });
+    },
+    [youtube]
+  );
 
   const selectVideo = video => {
     setSelectedVideo(video);
