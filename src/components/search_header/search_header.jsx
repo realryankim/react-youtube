@@ -20,14 +20,18 @@ const SearchHeader = memo(({ onSearch }) => {
   };
 
   const handleLogoClick = () => {
-    window.location = '/';
+    window.location = '/react-youtube';
   };
 
   return (
     <header className={styles.header}>
       <div className={styles.logo} onClick={handleLogoClick}>
-        <img className={styles.img} src='/images/logo.png' alt='logo' />
-        <h1 className={styles.title}>Youtube</h1>
+        <img
+          className={styles.img}
+          src={process.env.PUBLIC_URL + '/images/logo.png'}
+          alt='logo'
+        />
+        <h1 className={styles.title}>YouTube</h1>
       </div>
       <input
         ref={inputRef}
@@ -39,7 +43,7 @@ const SearchHeader = memo(({ onSearch }) => {
       <button type='submit' className={styles.button} onClick={onClick}>
         <img
           className={styles.buttonImg}
-          src='/images/search.png'
+          src={process.env.PUBLIC_URL + '/images/search.png'}
           alt='search'
         />
       </button>
